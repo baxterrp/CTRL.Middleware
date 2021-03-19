@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTRL.Middleware", "CTRL.Middleware\CTRL.Middleware.csproj", "{798151B9-C1B0-4B76-BF97-7DBAA5F79E4D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTRL.Authentication", "CTRL.Authentication\CTRL.Authentication.csproj", "{798151B9-C1B0-4B76-BF97-7DBAA5F79E4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

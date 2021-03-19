@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace CTRL.Middleware.Contracts
+namespace CTRL.Authentication.Contracts
 {
     public class ApiResponseContract
     {

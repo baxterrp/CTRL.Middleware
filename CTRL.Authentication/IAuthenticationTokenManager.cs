@@ -3,7 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Principal;
 
-namespace CTRL.Middleware.Services
+namespace CTRL.Authentication
 {
     public interface IAuthenticationTokenManager
     {

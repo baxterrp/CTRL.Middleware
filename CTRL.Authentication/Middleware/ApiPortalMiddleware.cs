@@ -1,5 +1,5 @@
-﻿using CTRL.Middleware.Contracts;
-using CTRL.Middleware.Exceptions;
+﻿using CTRL.Authentication.Contracts;
+using CTRL.Authentication.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using System;
@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Mime;
 using System.Threading.Tasks;
 
-namespace CTRL.Middleware.Handlers
+namespace CTRL.Authentication.Middleware
 {
     public class ApiPortalMiddleware
     {

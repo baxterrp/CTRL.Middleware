@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CTRL.Middleware.Exceptions
+namespace CTRL.Authentication.Exceptions
 {
     public class ResourceNotFoundException : Exception
     {

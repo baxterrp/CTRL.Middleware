@@ -1,4 +1,4 @@
-﻿namespace CTRL.Middleware.Configuration
+﻿namespace CTRL.Authentication.Configuration
 {
     public class AuthenticationConfiguration
     {

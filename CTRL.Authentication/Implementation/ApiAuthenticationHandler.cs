@@ -1,6 +1,6 @@
-﻿using CTRL.Middleware.Constants;
-using CTRL.Middleware.Contracts;
-using CTRL.Middleware.Services;
+﻿using CTRL.Authentication.Configuration;
+using CTRL.Authentication.Constants;
+using CTRL.Authentication.Contracts;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -13,7 +13,7 @@ using System.Security.Principal;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
-namespace CTRL.Middleware.Handlers
+namespace CTRL.Authentication.Implementation
 {
     public class ApiAuthenticationHandler : AuthenticationHandler<ApiAuthenticationOptions>
     {
@@ -39,7 +39,7 @@ namespace CTRL.Middleware.Handlers
                 {
                     if (!Request.Headers.ContainsKey(_cookieName))
                     {
-                        return Task.FromResult(AuthenticateResult.Fail(ApiMessages.Unauthorized));
+                        return Task.FromResult(AuthenticateResult.Fail(Messages.Unauthorized));
                     }
 
                     string stringCookie = Request.Headers[_cookieName];
@@ -48,7 +48,7 @@ namespace CTRL.Middleware.Handlers
                     IPrincipal principal = _authenticationTokenManager.ValidateToken(identityCookie.Token);
                     if (principal is null)
                     {
-                        return Task.FromResult(AuthenticateResult.Fail(ApiMessages.Unauthorized));
+                        return Task.FromResult(AuthenticateResult.Fail(Messages.Unauthorized));
                     }
 
                     var parsedToken = new JwtSecurityTokenHandler().ReadJwtToken(identityCookie.Token);
@@ -56,10 +56,10 @@ namespace CTRL.Middleware.Handlers
 
                     if (expectedUserName != identityCookie.UserName)
                     {
-                        return Task.FromResult(AuthenticateResult.Fail(ApiMessages.Unauthorized));
+                        return Task.FromResult(AuthenticateResult.Fail(Messages.Unauthorized));
                     }
 
-                    var ticket = new AuthenticationTicket(principal as ClaimsPrincipal, ApiNames.ApiAuthenticationScheme);
+                    var ticket = new AuthenticationTicket(principal as ClaimsPrincipal, "ApiAuthentication");
 
                     return Task.FromResult(AuthenticateResult.Success(ticket));
                 }
@@ -68,7 +68,7 @@ namespace CTRL.Middleware.Handlers
             }
             catch
             {
-                return Task.FromResult(AuthenticateResult.Fail(ApiMessages.Unauthorized));
+                return Task.FromResult(AuthenticateResult.Fail(Messages.Unauthorized));
             }
         }
     }

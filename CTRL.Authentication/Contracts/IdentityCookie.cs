@@ -1,4 +1,4 @@
-﻿namespace CTRL.Middleware.Contracts
+﻿namespace CTRL.Authentication.Contracts
 {
     public class IdentityCookie
     {
